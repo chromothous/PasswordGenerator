@@ -38,11 +38,15 @@ The app will likely be in English only.
 
 ##File structure:
 
-##For form creation
-  MainForm.cs
-##For Password Generator Logic
-  PasswordGeneratorLogic.cs
-## Main program
-  Program.cs
+  For form creation:
+    MainForm.cs
+  For Password Generator Logic:
+    PasswordGeneratorLogic.cs
+  Main program:
+    Program.cs
+
+##Recent Update
+
+It was too difficult to get a UI going, so the whole thing now works in the terminal.
 
 
