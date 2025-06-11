@@ -9,11 +9,11 @@ namespace PasswordGenerator
 {
     class PasswordGeneratorLogic
     {
-        public string SpecialCharacters;
-        public string UpperCaseLetters;
-        public string LowerCaseLetters;
-        public int[] Numbers;
-        public string[] FourLetterWords;
+        public string SpecialCharacters = "~`!@#$%^&*()_-=|[]{};:'.>/?";
+        public string UpperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        public string LowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
+        public int[] Numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        public string[] FourLetterWords = ["Tree", "Rock", "Wind", "Book", "Code", "Desk", "Lamp", "Note", "Void", "Fang", "Wisp", "Grim", "Husk", "Bane", "Claw", "Lurk", "Byte", "Ping", "Node", "Hash", "Port", "Data", "Boot", "Loop"];
 
         public bool SCIncluded;
         public bool ULIncluded;
@@ -26,15 +26,17 @@ namespace PasswordGenerator
         public string NewPassword;
         public int PasswordStrength;
 
-        public PasswordGeneratorLogic()
+        public PasswordGeneratorLogic(MainForm usedForm)
         {
-            SpecialCharacters = "~`!@#$%^&*()_-=|[]{};:'.>/?";
-            UpperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            LowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
-            Numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-            FourLetterWords = ["Tree", "Rock", "Wind", "Book", "Code", "Desk", "Lamp", "Note", "Void", "Fang", "Wisp", "Grim", "Husk", "Bane", "Claw", "Lurk", "Byte", "Ping", "Node", "Hash", "Port", "Data", "Boot", "Loop"];
-
             NewPassword = "";
+            SCIncluded = usedForm.SpecialCharacters;
+            ULIncluded = usedForm.UppercaseLetters;
+            LLIncluded = usedForm.LowercaseLetters;
+            NIncluded = usedForm.Numbers;
+            FLWIncluded = usedForm.FourLetterWords;
+
+            TrueLength = usedForm.PasswordLength;
+            RemainingLength = usedForm.PasswordLength;
         }
 
 
@@ -145,9 +147,6 @@ namespace PasswordGenerator
             {
                 this.PasswordStrength += 1;
             }
-            
-            Console.WriteLine(this.NewPassword);
-            Console.WriteLine("Password stength is: " + this.PasswordStrength + "/8");
         }
     }
 
