@@ -44,46 +44,80 @@ namespace PasswordGenerator
         {
             while (this.FormFilled == false)
             {
-                while (this.PasswordLengthChosen == false || this.PasswordLength < 8 || this.PasswordLength > 32)
-                {
-                    Console.WriteLine("Please enter in a password length from 8 - 32");
-
-                    this.PasswordLengthChosen = int.TryParse(Console.ReadLine(), out this.PasswordLength);
-                }
-                while (this.ValidSCInput == false)
-                {
-                    Console.WriteLine("Would you like special characters in the password?(true/false)");
-
-                    this.ValidSCInput = bool.TryParse(Console.ReadLine(), out this.SpecialCharacters);
-                }
-                while (this.ValidULInput == false)
-                {
-                    Console.WriteLine("Would you like to have uppercase letters in the password?(true/false)");
-
-                    this.ValidULInput = bool.TryParse(Console.ReadLine(), out this.UppercaseLetters);
-                }
-                while (this.ValidLLInput == false)
-                {
-                    Console.WriteLine("Would you like to have lowercase letters in the password?(true/false)");
-
-                    this.ValidLLInput = bool.TryParse(Console.ReadLine(), out this.LowercaseLetters);
-                }
-                while (this.ValidNInput == false)
-                {
-                    Console.WriteLine("Would you like to have numbers in the password?(true/false)");
-
-                    this.ValidNInput = bool.TryParse(Console.ReadLine(), out this.Numbers);
-                }
-                while (this.ValidFLWInput == false)
-                {
-                    Console.WriteLine("Would you like to have four letter words in your password?(true/false)");
-
-                    this.ValidFLWInput = bool.TryParse(Console.ReadLine(), out this.FourLetterWords);
-                }
+                this.PasswordLength = this.ChoosePasswordLength();
+                this.SpecialCharacters = this.ChooseSpecialCharacters();
+                this.UppercaseLetters = this.ChooseUppercaseLetters();
+                this.LowercaseLetters = this.ChooseLowercaseLetters();
+                this.Numbers = this.ChooseNumbers();
+                this.FourLetterWords = this.ChooseFourLetterWords();
                 this.FormFilled = true;
-
             }
         }
 
+        public int ChoosePasswordLength()
+        {
+            while (this.PasswordLengthChosen == false || this.PasswordLength < 8 || this.PasswordLength > 32)
+            {
+                Console.WriteLine("Please enter in a number from 8 - 32. This will be the length of the password generated.");
+
+                this.PasswordLengthChosen = int.TryParse(Console.ReadLine(), out this.PasswordLength);
+            }
+            return this.PasswordLength;
+        }
+
+        public bool ChooseSpecialCharacters()
+        {
+            while (this.ValidSCInput == false)
+            {
+                Console.WriteLine("Would you like special characters in the password?(true/false)");
+
+                this.ValidSCInput = bool.TryParse(Console.ReadLine(), out this.SpecialCharacters);
+            }
+            return this.SpecialCharacters;
+        }
+
+        public bool ChooseUppercaseLetters()
+        {
+            while (this.ValidULInput == false)
+            {
+                Console.WriteLine("Would you like to have uppercase letters in the password?(true/false)");
+
+                this.ValidULInput = bool.TryParse(Console.ReadLine(), out this.UppercaseLetters);
+            }
+            return this.UppercaseLetters;
+        }
+
+        public bool ChooseLowercaseLetters()
+        {
+            while (this.ValidLLInput == false)
+            {
+                Console.WriteLine("Would you like to have lowercase letters in the password?(true/false)");
+
+                this.ValidLLInput = bool.TryParse(Console.ReadLine(), out this.LowercaseLetters);
+            }
+            return this.LowercaseLetters;
+        }
+
+        public bool ChooseNumbers()
+        {
+            while (this.ValidNInput == false)
+            {
+                Console.WriteLine("Would you like to have numbers in the password?(true/false)");
+
+                this.ValidNInput = bool.TryParse(Console.ReadLine(), out this.Numbers);
+            }
+            return this.Numbers;
+        }
+
+        public bool ChooseFourLetterWords()
+        {
+            while (this.ValidFLWInput == false)
+            {
+                Console.WriteLine("Would you like to have four letter words in your password?(true/false)");
+
+                this.ValidFLWInput = bool.TryParse(Console.ReadLine(), out this.FourLetterWords);
+            }
+            return this.FourLetterWords;
+        }
     }
 }
