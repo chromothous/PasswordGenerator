@@ -14,20 +14,13 @@ namespace PasswordGenerator
 
             MainForm PasswordForm = new MainForm();
 
-            PasswordGeneratorLogic PasswordGenerator = new PasswordGeneratorLogic();
-
             PasswordForm.FillingForm();
 
-            PasswordGenerator.RemainingLength = PasswordForm.PasswordLength;
-            PasswordGenerator.TrueLength = PasswordForm.PasswordLength;
-
-            PasswordGenerator.SCIncluded = PasswordForm.SpecialCharacters;
-            PasswordGenerator.ULIncluded = PasswordForm.UppercaseLetters;
-            PasswordGenerator.LLIncluded = PasswordForm.LowercaseLetters;
-            PasswordGenerator.NIncluded = PasswordForm.Numbers;
-            PasswordGenerator.FLWIncluded = PasswordForm.FourLetterWords;
+            PasswordGeneratorLogic PasswordGenerator = new PasswordGeneratorLogic(PasswordForm);
 
             PasswordGenerator.PasswordGenerator();
+            Console.WriteLine(PasswordGenerator.NewPassword);
+            Console.WriteLine("Password stength is: " + PasswordGenerator.PasswordStrength + "/8");
 
             Console.WriteLine("Thanks for using my password generator.");
         }
