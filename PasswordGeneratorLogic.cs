@@ -9,23 +9,27 @@ namespace PasswordGenerator
 {
     class PasswordGeneratorLogic
     {
+        //Setting up the values to be inserted into the password.
         public string SpecialCharacters = "~`!@#$%^&*()_-=|[]{};:'.>/?";
         public string UpperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         public string LowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
         public int[] Numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
         public string[] FourLetterWords = ["Tree", "Rock", "Wind", "Book", "Code", "Desk", "Lamp", "Note", "Void", "Fang", "Wisp", "Grim", "Husk", "Bane", "Claw", "Lurk", "Byte", "Ping", "Node", "Hash", "Port", "Data", "Boot", "Loop"];
 
+        //Setting up bools for whether the user wants certain things included.
         public bool SCIncluded;
         public bool ULIncluded;
         public bool LLIncluded;
         public bool NIncluded;
         public bool FLWIncluded;
 
+        //Setting up values for the length of the password and the string values you will be inserted into.
         public int TrueLength;
         public int RemainingLength;
         public string NewPassword;
         public int PasswordStrength;
 
+        //Setting up the password logic's needed parameters from what the user chooses.
         public PasswordGeneratorLogic(MainForm usedForm)
         {
             NewPassword = "";
@@ -40,6 +44,7 @@ namespace PasswordGenerator
         }
 
 
+        //The logic of using random values to insert into the password.
         public void PasswordGenerator()
         {
             Random rng = new Random();
@@ -115,6 +120,7 @@ namespace PasswordGenerator
                 }
             }
 
+            //The logic for how strong the password is.
             if (this.TrueLength >= 8 && this.TrueLength < 16)
             {
                 this.PasswordStrength += 1;
