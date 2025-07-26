@@ -30,12 +30,7 @@ Run the program.
 
 When prompted, enter the desired password length (between 8 and 32 characters).
 
-Respond true or false to whether you want to include:
-Special characters
-Uppercase letters
-Lowercase letters
-Numbers
-Four-letter words
+Respond true or false to whether you want to include: Special characters, Uppercase letters, Lowercase letters, Numbers, and Four-letter words
 
 The program will generate and display a password based on your selections.
 
