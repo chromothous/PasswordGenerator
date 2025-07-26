@@ -7,6 +7,7 @@ using PasswordGenerator;
 
 namespace PasswordGenerator
 {
+    //Setting up for the User to choose what values they want in the password and form validation variables.
     class MainForm
     {
         public int PasswordLength;
@@ -40,6 +41,7 @@ namespace PasswordGenerator
             ValidFLWInput = false;
         }
 
+        //the form for the User to choose what they want in the password.
         public void FillingForm()
         {
             while (this.FormFilled == false)
