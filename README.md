@@ -1,52 +1,52 @@
-I’d like to create a C# project that generates weak to strong passwords, whatever the User wishes to have, and the password would have a good amount of entropy. There would be a UI for… 
+Password Generator
+A console-based password generator written in C#, designed to give users flexible control over their password composition while maintaining straightforward and understandable logic.
 
-Selecting the Length they want the password to be (8 - 32).
+Overview
+This project allows users to generate strong, customizable passwords by selecting which types of characters and elements to include. The password can contain:
 
-Selecting whether they would like special characters or not.
+Special characters (e.g., ~!@#$%^&*)
 
-Selecting whether they would like uppercase letters or not.
+Uppercase letters (A-Z)
 
-Selecting whether they would like lowercase letters or not.
+Lowercase letters (a-z)
 
-Selecting how many four-letter words they would like in the password (This would 
-handle cases based on the length they submit.)
+Numbers (0-9)
 
-Selecting whether they would like numbers in their password.
+Four-letter words (from a predefined list)
 
-After this, the password generator would generate a password and scale from 1 to 8, measuring the password's strength. 3 points would be based on the length, 4 points would be based on each type of character being selected, and 1 additional point if the four-letter words are included. This would also stop the user if they choose not to select anything at all.
+The generator dynamically builds a password based on the user’s choices and desired length, balancing complexity and readability.
 
-## Out of bounds, Things that won’t be part of this app:
+Features
+User-driven input: The program prompts users to specify password length and which character types to include.
 
-Saving and encrypting passwords for user. (This isn’t a limitation, I just believe this is dangerous to do.)
+Form validation: Inputs are validated to ensure they meet expected formats and constraints.
 
-Live password strength feedback as the user types.
+Adaptive logic: The password is constructed randomly but respects user preferences, including the choice to incorporate meaningful four-letter words.
 
-Login/signup systems.
+Password strength estimation: Based on length and included character types, the program calculates a simple strength score.
 
+How to Use
+Run the program.
 
-Hashing passwords for users.
+When prompted, enter the desired password length (between 8 and 32 characters).
 
+Respond true or false to whether you want to include:
+Special characters
+Uppercase letters
+Lowercase letters
+Numbers
+Four-letter words
 
-Comparing password input against stored credentials.
+The program will generate and display a password based on your selections.
 
-Meet compliance standards like NIST or OWASP.
+Code Structure
+MainForm class: Handles user input and validates choices.
 
+PasswordGeneratorLogic class: Contains the core logic for constructing the password based on user settings.
 
-Integrate security libraries.
+Program entry point: Creates instances of the above classes and coordinates the flow.
 
-The app will likely be in English only.
+Notes
+The inclusion of four-letter words reduces the remaining length by four characters each time one is added, so the password length may adjust accordingly.
 
-##File structure:
-
-  For form creation:
-    MainForm.cs
-  For Password Generator Logic:
-    PasswordGeneratorLogic.cs
-  Main program:
-    Program.cs
-
-##Recent Update
-
-It was too difficult to get a UI going, so the whole thing now works in the terminal.
-
-
+Password strength is a simple heuristic based on length and variety of character types selected.
