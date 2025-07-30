@@ -34,9 +34,10 @@ MainForm class: Handles user input and validates choices.
 
 PasswordGeneratorLogic class: Contains the core logic for constructing the password based on user settings.
 
-Program entry point: Creates instances of the above classes and coordinates the flow.
+Program entry point at program.cs: Creates instances of the above classes and coordinates the flow.
 
-Notes
+////Notes////
+
 The inclusion of four-letter words reduces the remaining length by four characters each time one is added, so the password length may adjust accordingly.
 
 Password strength is a simple heuristic based on length and variety of character types selected.
