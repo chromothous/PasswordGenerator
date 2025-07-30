@@ -9,7 +9,7 @@ namespace PasswordGenerator
 {
     class PasswordGeneratorLogic
     {
-        //Setting up the values to be inserted into the password.
+        // character sets available for password construction
         public string SpecialCharacters = "~`!@#$%^&*()_-=|[]{};:'.>/?";
         public string UpperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         public string LowerCaseLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -23,7 +23,7 @@ namespace PasswordGenerator
         public bool NIncluded;
         public bool FLWIncluded;
 
-        //Setting up values for the length of the password and the string values you will be inserted into.
+        // Holds target length, working length, and final password result.
         public int TrueLength;
         public int RemainingLength;
         public string NewPassword;
@@ -50,6 +50,8 @@ namespace PasswordGenerator
             Random rng = new Random();
 
             Console.WriteLine("Generating...");
+
+            // Main loop: build password while at least 4 characters remain (to allow for four-letter word insertion)
             while (this.RemainingLength > 4)
             {
                 int randomChoice = rng.Next(0, 5);
@@ -85,6 +87,7 @@ namespace PasswordGenerator
                 }
             }
 
+            // Fill remaining characters using other included character sets
             while (this.RemainingLength > 0)
             {
                 int randomChoice = rng.Next(0, 4);
@@ -120,7 +123,7 @@ namespace PasswordGenerator
                 }
             }
 
-            //The logic for how strong the password is.
+            // Final scoring for password strength based on composition and length
             if (this.TrueLength >= 8 && this.TrueLength < 16)
             {
                 this.PasswordStrength += 1;
